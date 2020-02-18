@@ -1,0 +1,32 @@
+{
+  "name": "mail",
+  "version": "1.0.0",
+  "description": "project for sending  mail",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js",
+    "build": "node run build"
+  },
+  "keywords": [],
+  "author": "syed mohiuddin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hogan.js": "^3.0.2",
+    "netlify-lambda": "^1.6.3",
+    "nodemailer": "^6.4.2",
+    "serverless-http": "^2.3.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/syedmohin/mail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/syedmohin/mail/issues"
+  },
+  "homepage": "https://github.com/syedmohin/mail#readme"
+}

@@ -1,0 +1,29 @@
+<html>
+<head>
+  <style>
+    body{
+        color:blue;
+    }
+    h1{
+        font-weigth:bold;
+        color:red;
+        margin:50px;
+        border : 1px solid black;
+    }
+    h3{
+        color:blue;
+        border : 1px solid yellow;
+    }
+    h4,h5{
+        color:green;
+        border:gray;
+    }
+  </style>
+</head>
+<body>
+    <h1>Mail from portfolio</h1>
+    <h3>{{name}} is trying to contact you. here is his/her mail address {{mail}}</h3>
+    <h4>He/she left a message for you </h4>
+    <h5>{{msg}}</h5>
+</body>
+</html>
