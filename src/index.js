@@ -9,25 +9,22 @@ const app = exp();
 
 const PORT = process.env.PORT || 5000;
 
-exp()
-    .use(exp.static(path.join(__dirname, 'public')))
-    .set('views', path.join(__dirname, 'views'))
-    .set('view engine', 'ejs')
-    .get('/', (req, res) => res.render('pages/index'))
-    .get('/cool', (req, res) => res.send(cool()))
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+exp().use(exp.static('public'))
 
-app.use(cors())
+app.listen(process.env.PORT || 8080, () => console.log(`Listening on ${PORT}`))
+
 //CORS Middleware
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
 //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    if (req.method === 'OPTIONS') {
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,PATCH,POST,PUT,DELETE");
+        return res.status(200).json({});
+    }
     next();
 });
 app.use(bp.json());
-app.use(cors());
 
 function sendMail(details) {
 
@@ -67,7 +64,7 @@ function sendMail(details) {
 
 }
 
-app.get("/mail", cors(), (req, res) => {
+app.get("/mail", (req, res) => {
     console.log(req.body);
     console.log(req.body.name);
     console.log(req.body.mail);
@@ -77,9 +74,9 @@ app.get("/mail", cors(), (req, res) => {
     res.json({'resp': "Sent successful"});
 });
 
-app.listen(3000, _ => {
-    console.log("Server started at port number 3000")
-})
+// app.listen(3000, _ => {
+//     console.log("Server started at port number 3000")
+// })
 
 
 
