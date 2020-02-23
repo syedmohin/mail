@@ -1,2 +1,3 @@
-# mail
-##Rest API for Mail sending
+# Mail
+## Rest API for Mail sending
+### Express JS is used
